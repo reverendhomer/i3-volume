@@ -9,7 +9,6 @@ Volume control and volume notifications for [i3wm](http://i3wm.org)
 #### Requirements
 * [i3wm](http://i3wm.org) - A better tiling and dynamic window manager
 * [notify-osd](https://launchpad.net/notify-osd) - Canonical's on-screen-display notification agent
-* [pulseaudio](http://pulseaudio.org) - Sound system for POSIX OSes. Typically provided by your OS distribution 
 
 #### Conflicts
 dunst will not work with i3-volume's notifications. If you wish to use notifications you must use notify-osd.
@@ -38,11 +37,6 @@ set $statussig SIGUSR1
 
 # Amount to increase/decrease volume as a percentage (used with -i, -d)
 set $volumestep 5
-
-# Symbolic name for sink (numeric index not supported) (used with -s $sinkname)
-#   Recommended: comment out this setting and omit the -s option to use default sink
-#   List sink names: pacmd list-sinks | awk -F "[<>]" '/^\s+name: <.*>/{print $2}' 
-#set $sinkname alsa_output.pci-0000_00_1b.0.analog-stereo 
 
 bindsym XF86AudioRaiseVolume exec $volumepath/volume -i $volumestep -n -t $statuscmd -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath/volume -d $volumestep -n -t $statuscmd -u $statussig
